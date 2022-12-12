@@ -1,13 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import data from './data'
+import Navbar from './components/Navbar';
+import Card from './components/Card'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const travelEntries = data.map(function(entry) {
+  return (
+    <Card 
+      key={entry.id}
+      entry={entry}
+    />
+  )
+})
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Navbar />
+    <section className='travel-entries'>
+      {travelEntries}
+    </section>
   </React.StrictMode>
 );
 
